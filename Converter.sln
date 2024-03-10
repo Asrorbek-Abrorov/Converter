@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converter.Main", "Converter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converter.Data", "Converter.Data\Converter.Data.csproj", "{84308640-14B5-4675-9631-468C1E44ED66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Domain", "Converter.Domain\Converter.Domain.csproj", "{9990D0D6-6519-4E3F-9511-FBBFDDB35A56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84308640-14B5-4675-9631-468C1E44ED66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84308640-14B5-4675-9631-468C1E44ED66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84308640-14B5-4675-9631-468C1E44ED66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9990D0D6-6519-4E3F-9511-FBBFDDB35A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9990D0D6-6519-4E3F-9511-FBBFDDB35A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9990D0D6-6519-4E3F-9511-FBBFDDB35A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9990D0D6-6519-4E3F-9511-FBBFDDB35A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
