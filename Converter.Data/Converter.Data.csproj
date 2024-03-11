@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Converter.TelegramBot\Converter.TelegramBot.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Downloads\" />
+    <Folder Include="ConvertedFiles\" />
+  </ItemGroup>
+
 </Project>
