@@ -16,7 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Converter.Domain\Converter.Domain.csproj" />
+    <ProjectReference Include="..\Converter.Services\Converter.Services.csproj" />
     <ProjectReference Include="..\Converter.TelegramBot\Converter.TelegramBot.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Downloads\" />
+    <Folder Include="ConvertedFiles\" />
   </ItemGroup>
 
 </Project>

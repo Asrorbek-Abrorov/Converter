@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Converter.Data\Converter.Data.csproj" />
-    <ProjectReference Include="..\Converter.TelegramBot\Converter.TelegramBot.csproj" />
-  </ItemGroup>
-
 </Project>

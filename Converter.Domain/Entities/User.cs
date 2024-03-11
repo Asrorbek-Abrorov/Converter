@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Converter.Data.Entities;
+namespace Converter.Domain.Entities;
 
 public class User
 {

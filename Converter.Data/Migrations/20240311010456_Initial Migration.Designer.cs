@@ -8,10 +8,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Converter.Domain.Migrations
+namespace Converter.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240310143753_Initial-Migration")]
+    [Migration("20240311010456_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
