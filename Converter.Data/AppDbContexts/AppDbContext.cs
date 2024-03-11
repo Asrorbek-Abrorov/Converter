@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Converter.Domain.Entities;
 
-namespace Converter.Domain.AppDbContexts;
+namespace Converter.Data.AppDbContexts;
 
 public class AppDbContext : DbContext
 {

@@ -1,10 +1,13 @@
-﻿namespace Converter.TelegramBot
+﻿using Converter.Domain.Configuration;
+using Telegram.Bot;
+
+namespace Converter.TelegramBot;
+
+public class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+        Console.WriteLine("Telegram Bot!");
+
     }
 }
