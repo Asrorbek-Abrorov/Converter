@@ -1,13 +1,25 @@
-﻿using SautinSoft;
+﻿using Converter.Domain.Configuration;
+using SautinSoft;
 using System.Text;
 
 namespace Converter.Services.Services;
 
 public class Converters
 {
-    public async Task<string> PdfToWordConverter(string pdfFilePath)
+    public string GenerateFileName(string extension)
     {
-        string docxFilePath = string.Empty;
+        // Generate a unique file name based on the current timestamp
+        string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+        // Append the provided extension to the file name
+        fileName += extension;
+
+        return fileName;
+    }
+
+    public async Task<string> PdfToWordConverter(string pdfFilePath, string fileName)
+    {
+        string docxFilePath = Constants.CONVERTED_PATH + fileName;
         try
         {
             PdfFocus pdfFocus = new();

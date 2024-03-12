@@ -4,15 +4,22 @@ using Telegram.Bot.Types.ReplyMarkups;
 using Converter.Domain.Configuration;
 using Telegram.Bot.Types.Enums;
 using Spectre.Console;
+using Converter.Services.Services;
+using Converter.Data.AppDbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Converter.TelegramBot.TelegramService;
 
 public class TelegramService
 {
     TelegramBotClient botClient;
-    public TelegramService(TelegramBotClient telegramBotClient)
+    Converters converters;
+    AppDbContext appDbContext;
+    public TelegramService(TelegramBotClient telegramBotClient, Converters converters)
     {
         this.botClient = telegramBotClient;
+        this.converters = converters;
+        appDbContext = new AppDbContext();
     }
 
     public async Task Run()
@@ -28,8 +35,15 @@ public class TelegramService
         AnsiConsole.MarkupLine($"[yellow]{message?.From?.FirstName}[/]  |  {message?.Text}");
         Console.WriteLine(update.Message?.Type);
 
-        await SendMessageAsync(message.From.Id, "Hi");
-
+        if (await IfUserExists(message.From.Id))
+        {
+            await SendMessageAsync(message.From.Id, "Hi");
+        }
+        else
+        {
+            await SendMessageAsync(message.From.Id, "Hi");
+            await AddUser(message);
+        }
         if (update.Message?.Type == MessageType.Photo)
         {
             await DownloadPhotoAsync(update.Message.Photo[3].FileId);
@@ -37,6 +51,48 @@ public class TelegramService
         else if (update.Message?.Type == MessageType.Document)
         {
             await DownloadFileAsync(update.Message.Document.FileId, update.Message.Document.FileName);
+            var resPath = await converters.PdfToWordConverter(Constants.DOWNLOADS_PATH + update.Message.Document.FileName, converters.GenerateFileName(".docx"));
+            await SendFileAsync(update.Message.From.Id, resPath);
+        }
+    }
+
+    private async Task AddUser(Message message)
+    {
+        var user = await appDbContext.Users.FirstOrDefaultAsync(u => u.TelegramId == message.From.Id);
+        if (user == null)
+        {
+            user = new Domain.Entities.User
+            {
+                TelegramId = message.From.Id,
+                FirstName = message.From.FirstName,
+                LastName = message.From.LastName,
+                UserName = message.From.Username,
+            };
+            await appDbContext.Users.AddAsync(user);
+            await appDbContext.SaveChangesAsync();
+        }
+    }
+
+    public async Task GetUser(long id)
+        => await appDbContext.Users.FirstOrDefaultAsync(u => u.TelegramId == id);
+
+    public async Task<bool> IfUserExists(long id)
+    {
+        if (await appDbContext.Users.FirstOrDefaultAsync(u => u.TelegramId == id) == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public async Task SendFileAsync(long chatId, string filePath)
+    {
+        using (var stream = new FileStream(filePath, FileMode.Open))
+        {
+            var fileName = Path.GetFileName(filePath);
+            var fileToSend = new InputFileStream(stream, fileName);
+
+            await botClient.SendDocumentAsync(chatId, fileToSend);
         }
     }
 
