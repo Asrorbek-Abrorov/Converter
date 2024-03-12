@@ -17,8 +17,8 @@ Functionality: The program stores all user information in a database, including 
 
 Creators of the program:
 
-Asrorbek Abrorov: Database connection, Telegram bot connection, Telegram bot UI.
-Mirjalol Ziyadullayev: Converter services.
-Javlonbek Ismatov: TZ of the program, database diagram, History Service.
+    Asrorbek Abrorov: Database connection, Telegram bot connection, Telegram bot UI.
+    Mirjalol Ziyadullayev: Converter services.
+    Javlonbek Ismatov: TZ of the program, database diagram, History Service.
 
 <img width="871" alt="image" src="https://github.com/Asrorbek-Abrorov/Converter/assets/101877510/78aeb36c-6698-499e-a5ec-9a9d4d236dc6">
