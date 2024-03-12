@@ -29,6 +29,7 @@ Funksionalnosti:
 Programma databazaga ulangan bo'lib hamma foydalanuvchilar ma'lumotlari databazaga saqlanib boriladi, yani, Foydalanuvchinig ismi, familiyasi, foydalanuvchi ismi(laqabi), telegram akkauntini Id si va pochtasi. Bundan tashqari databazaga qaysi foydalanuvchi, qaysi fayldi, nimaga convert qilgani haqidda informatsiya ham saqlab boriladi. Bu programmaning qulayligi shundaki siz hech qnday saytlarga kirib fayillarizdi konvert qilib o'tirishingiz uchun ADS kurmaysiz, shunchaki botga start berasiz va fayillarizdi konvert qilish uchun tashlab berasiz va bot sizga tayyor fayillarni hech qanday reklamasiz sizga yuklab olishingiz uchun tayyorlab beradi.
 
 Programmani tuzganlar:
+
 			Asrorbek Abrorov: Database connection, Telegram bot connection, Telegram bot UI.
    
 			Mirjalol Ziyadullayev: Converter services.
