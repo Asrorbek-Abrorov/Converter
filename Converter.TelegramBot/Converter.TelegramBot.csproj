@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Converter.Data\Converter.Data.csproj" />
     <ProjectReference Include="..\Converter.Domain\Converter.Domain.csproj" />
+    <ProjectReference Include="..\Converter.Services\Converter.Services.csproj" />
   </ItemGroup>
 
 </Project>

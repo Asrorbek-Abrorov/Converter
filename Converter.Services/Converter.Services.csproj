@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="sautinsoft.pdffocus" Version="2024.2.5" />
+    <PackageReference Include="SendGrid" Version="9.29.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Converter.Domain\Converter.Domain.csproj" />
   </ItemGroup>
 
 </Project>
