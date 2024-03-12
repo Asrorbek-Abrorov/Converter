@@ -14,7 +14,7 @@ public class UserService
     private static async Task<string> Execute(string gmail, string name)
     {
         var apiKey = Environment.GetEnvironmentVariable(Constants.ApiKey);
-        var client = new SendGridClient(apiKey ?? "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");
+        var client = new SendGridClient(apiKey);
         var from = new EmailAddress(Constants.Account, "From Asror");
         var subject = "Verification Code";
         var to = new EmailAddress(gmail, name);
