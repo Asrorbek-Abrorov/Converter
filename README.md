@@ -1,39 +1,24 @@
-# Converter
-Converter: 
-Bu programma telegram bot orqali ishlaydigan bo'lib, bunda siz fayillarizni convert qilishga yordam beradi. Masalan: sizda PDF formatdagi fayl mavjud va siz uni WORD formatiga o'girmoqchsiz shunda siz bizning telegram botimiz orqali bu ishingizni bajarishingiz mumkin, siz botda qanaqa formatdagi fatilni qaysi formatga o'girmoqchi ekanligizni belgilaysiz va bot sizga tayyor faylni yuklab olish uchun yuboradi. Lekin hamma nersaniyam uzining chegarasi bulganiday bot sizga fideoni rasm hilib bera olmaydi, yoki muzikani rasm qilib bera olmaydi, aniq bir formatdagi faylni o'zgartira oladigan format belgilangandan keyin sizga faylni o'girib beradi
- Misol uchun fayllar: 
- 
-   1. PDF => WORD
-		 
-   2. PDF => HTML
+The program is a converter that operates through a Telegram bot and assists users in converting files. For example, if you have a file in PDF format and you want to convert it to WORD format, you can use our Telegram bot to accomplish this task. You specify the format of the file you have and the format you want to convert it to on the bot, and the bot will send you the ready file for download after specifying the conversion format. However, the bot has its limitations; it cannot convert videos or music files into images, or vice versa. Once you specify a format that can be converted into, the bot will process the file and provide it to you.
 
-   3. FILE => BYTE
+Here are some examples of file conversions:
 
-   4. FILE => BINARY
+PDF => WORD
+PDF => HTML
+FILE => BYTE
+FILE => BINARY
+BINARY => TEXT
+TEXT => ASCII
+DECIMAL => BINARY
+DECIMAL => OCTAL
+DECIMAL => HEXADECIMAL
+DECIMAL => PERCENT
+BASE => BASE
+Functionality: The program stores all user information in a database, including the user's name, surname, username, Telegram account ID, and email. Additionally, information about which user converted which file and for what purpose is also stored in the database. The convenience of this program lies in the fact that you do not need to visit any websites to convert your files; you simply start the bot, upload your files for conversion, and the bot will prepare the converted files for you to download without any advertisements.
 
-   5. BINARY => TEXT
+Creators of the program:
 
-   6. TEXT => ASCII
+Asrorbek Abrorov: Database connection, Telegram bot connection, Telegram bot UI.
+Mirjalol Ziyadullayev: Converter services.
+Javlonbek Ismatov: TZ of the program, database diagram, History Service.
 
-   7. DECIMAL => BINARY
-
-   8. DECIMAL => OCTAL
-
-   9. DECIMAL => HEXADECIMAL
-
-   10. DECIMAL => PECSENT
-
-   11. BASE => BASE 
-
-Funksionalnosti: 
-Programma databazaga ulangan bo'lib hamma foydalanuvchilar ma'lumotlari databazaga saqlanib boriladi, yani, Foydalanuvchinig ismi, familiyasi, foydalanuvchi ismi(laqabi), telegram akkauntini Id si va pochtasi. Bundan tashqari databazaga qaysi foydalanuvchi, qaysi fayldi, nimaga convert qilgani haqidda informatsiya ham saqlab boriladi. Bu programmaning qulayligi shundaki siz hech qnday saytlarga kirib fayillarizdi konvert qilib o'tirishingiz uchun ADS kurmaysiz, shunchaki botga start berasiz va fayillarizdi konvert qilish uchun tashlab berasiz va bot sizga tayyor fayillarni hech qanday reklamasiz sizga yuklab olishingiz uchun tayyorlab beradi.
-
-Programmani tuzganlar:
-
-			Asrorbek Abrorov: Database connection, Telegram bot connection, Telegram bot UI.
-   
-			Mirjalol Ziyadullayev: Converter services.
-   
-			Javlonbek Ismatov: TZ of programm, db diagram, History Service.
-   
 <img width="871" alt="image" src="https://github.com/Asrorbek-Abrorov/Converter/assets/101877510/78aeb36c-6698-499e-a5ec-9a9d4d236dc6">
