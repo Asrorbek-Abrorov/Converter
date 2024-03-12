@@ -2,17 +2,18 @@ The program is a converter that operates through a Telegram bot and assists user
 
 Here are some examples of file conversions:
 
-PDF => WORD
-PDF => HTML
-FILE => BYTE
-FILE => BINARY
-BINARY => TEXT
-TEXT => ASCII
-DECIMAL => BINARY
-DECIMAL => OCTAL
-DECIMAL => HEXADECIMAL
-DECIMAL => PERCENT
-BASE => BASE
+    PDF => WORD
+    PDF => HTML
+    FILE => BYTE
+    FILE => BINARY
+    BINARY => TEXT
+    TEXT => ASCII
+    DECIMAL => BINARY
+    DECIMAL => OCTAL
+    DECIMAL => HEXADECIMAL
+    DECIMAL => PERCENT
+    BASE => BASE
+    
 Functionality: The program stores all user information in a database, including the user's name, surname, username, Telegram account ID, and email. Additionally, information about which user converted which file and for what purpose is also stored in the database. The convenience of this program lies in the fact that you do not need to visit any websites to convert your files; you simply start the bot, upload your files for conversion, and the bot will prepare the converted files for you to download without any advertisements.
 
 Creators of the program:
