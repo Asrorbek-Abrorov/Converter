@@ -21,4 +21,5 @@ public class AppDbContext : DbContext
         optionsBuilder.UseNpgsql(Constants.CONNECTION_STRING);
     }
     public DbSet<User> Users { get; set; }
+    public DbSet<UserHistory> History { get; set; }
 }
