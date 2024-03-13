@@ -40,6 +40,9 @@ namespace Converter.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
+                    b.Property<string>("Phone")
+                        .HasColumnType("text");
+
                     b.Property<long>("TelegramId")
                         .HasColumnType("bigint");
 

@@ -13,8 +13,8 @@ public class Program
     {
         Console.WriteLine("Hello, World!");
         TelegramBotClient client = new TelegramBotClient(Constants.TelegramBotToken);
-        Converters converters = new Converters();
-        var telegramService = new TelegramService(client, converters);
+        ConverterService converterService = new ConverterService();
+        var telegramService = new TelegramService(client, converterService);
         await telegramService.Run();
     }
 }
