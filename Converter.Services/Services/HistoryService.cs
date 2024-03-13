@@ -5,30 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Converter.Domain.Entities;
-namespace Converter.Services.Services
-{
-    public class HistoryService
-    {
-        List<History> histories;
-        public HistoryService()
-        {
-            histories = new List<History>();
-        }
-        public async Task<List<History>> SavingHistoryOfUser(long userId, string filePath)
-        {
+namespace Converter.Services.Services;
 
-            FileInfo fileInfo = new FileInfo(filePath);
-            History convertedFile = new History()
-            {
-                FileFormat = fileInfo.Extension,
-                FileName = fileInfo.Name,
-                FilePath = filePath,
-                Id = histories.Last().Id++,
-                TimeOfConverted = DateTime.UtcNow,
-                UserId = userId,
-            };
-            histories.Add(convertedFile);
-            return histories.Where(u => u.UserId == userId).ToList();
-        }
+public class HistoryService
+{
+    List<UserHistory> histories;
+    public HistoryService()
+    {
+        histories = new List<UserHistory>();
+    }
+    public async Task<List<UserHistory>> SavingHistoryOfUser(long userId, string fileName)
+    {
+        UserHistory convertedFile = new UserHistory()
+        {
+            Id = histories.Last().Id++,
+            TimeOfConverted = DateTime.UtcNow,
+            UserId = userId,
+        };
+        histories.Add(convertedFile);
+        return histories.Where(u => u.UserId == userId).ToList();
     }
 }
