@@ -114,26 +114,26 @@ public class TelegramService
             // Send a message to the user with the reply keyboard
             await SendMessageAsync(update.Message.Chat.Id, "Select a method:", replyMarkup: replyMarkup);
         }
-        else if (message.Text.ToUpper().Contains("ASCII="))
+        else if (message?.Text?.ToUpper().Contains("ASCII=") ?? false)
         {
             var text = message.Text.Substring(message.Text.IndexOf("ASCII=") + 7);
             var ascii = await converterService.TextToAsciiConverter(text);
             await SendMessageAsync(message.From.Id, $"ASCII = {ascii}");
         }
-        else if (message.Text.ToUpper().Contains("TEXT="))
+        else if (message?.Text?.ToUpper().Contains("TEXT=") ?? false)
         {
             var binaryData = message.Text.Substring(message.Text.IndexOf("TEXT=") + 6);
             var text = await converterService.BinaryToTextConverter(binaryData);
             await SendMessageAsync(message.From.Id, $"Text = {text}");
         }
-        else if (message.Text.ToUpper().Contains("BINARY="))
+        else if (message?.Text?.ToUpper().Contains("BINARY=") ?? false)
         {
             var binaryData = message.Text.Substring(message.Text.IndexOf("BINARY=") + 8);
             var binary = await converterService.TextToBinaryConverter(binaryData);
             var res = string.Join("", binary);
             await SendMessageAsync(message.From.Id, $"BINARY = {res}");
         }
-        else if (message.Text.ToUpper().Contains("DOC="))
+        else if (message?.Text?.ToUpper().Contains("DOC=") ?? false)
         {
             var decimalString = message.Text.Substring(message.Text.IndexOf("DOC=") + 5);
             if (decimal.TryParse(decimalString, out decimal decimalValue))
@@ -146,7 +146,7 @@ public class TelegramService
                 await SendMessageAsync(message.From.Id, "Invalid decimal value. Please provide a valid decimal number after 'DOC='.");
             }
         }
-        else if (message.Text.ToUpper().Contains("DHEX="))
+        else if (message?.Text?.ToUpper().Contains("DHEX=") ?? false)
         {
             var decimalString = message.Text.Substring(message.Text.IndexOf("DHEX=") + 6);
             if (decimal.TryParse(decimalString, out decimal decimalValue))
@@ -159,7 +159,7 @@ public class TelegramService
                 await SendMessageAsync(message.From.Id, "Invalid decimal value. Please provide a valid decimal number after 'DHEX='.");
             }
         }
-        else if (message.Text.ToUpper().Contains("DPER="))
+        else if (message?.Text?.ToUpper().Contains("DPER=") ?? false)
         {
             var decimalString = message.Text.Substring(message.Text.IndexOf("DPER=") + 6);
             if (decimal.TryParse(decimalString, out decimal decimalValue))
@@ -172,19 +172,19 @@ public class TelegramService
                 await SendMessageAsync(message.From.Id, "Invalid decimal value. Please provide a valid decimal number after 'DPER='.");
             }
         }
-        else if (message.Text.ToUpper().Contains("DECIMAL="))
+        else if (message?.Text?.ToUpper().Contains("DECIMAL=") ?? false)
         {
             var decimalString = message.Text.Substring(message.Text.IndexOf("DECIMAL=") + 9);
             var converted = await converterService.ConvertFromDecimal(int.Parse(decimalString));
             await SendMessageAsync(message.From.Id, $"Converted value = {converted}");
         }
-        else if (message.Text.ToUpper().Contains("TODEC="))
+        else if (message?.Text?.ToUpper().Contains("TODEC=") ?? false)
         {
             var numberString = message.Text.Substring(message.Text.IndexOf("TODEC=") + 7);
             var decimalValue = await converterService.ConvertToDecimal(numberString);
             await SendMessageAsync(message.From.Id, $"Decimal value = {decimalValue}");
         }
-        else if (message.Text.ToUpper().Contains("CHAR="))
+        else if (message?.Text?.ToUpper().Contains("CHAR=") ?? false)
         {
             var charValue = message.Text.Substring(message.Text.IndexOf("CHAR=") + 6);
             if (int.TryParse(charValue, out int parsedCharValue))
@@ -197,21 +197,21 @@ public class TelegramService
                 await SendMessageAsync(message.From.Id, "Invalid character value. Please enter a valid integer value.");
             }
         }
-        else if (message.Text.ToUpper().Contains("DGT="))
+        else if (message?.Text?.ToUpper().Contains("DGT=") ?? false)
         {
             var digitValue = message.Text.Substring(message.Text.IndexOf("DGT=") + 5)[0];
             var value = await converterService.GetDigitValue(digitValue);
             await SendMessageAsync(message.From.Id, $"Digit value = {value}");
         }
-        else if (message.Text.ToUpper().Contains("PDFTOWORDCONVERTER"))
+        else if (message?.Text?.ToUpper().Contains("PDFTOWORDCONVERTER") ?? false)
         {
             await SendMessageAsync(message.From.Id, "Send me a PDF file");
         }
-        else if (message.Text.ToUpper().Contains("FILETOBYTECONVERTER"))
+        else if (message?.Text?.ToUpper().Contains("FILETOBYTECONVERTER") ?? false)
         {
             await SendMessageAsync(message.From.Id, "Send me a file");
         }
-        else if (message.Text.ToUpper().Contains("FILETOBINARYCONVERTER"))
+        else if (message?.Text?.ToUpper().Contains("FILETOBINARYCONVERTER") ?? false)
         {
             await SendMessageAsync(message.From.Id, "Send me a file");
         }
