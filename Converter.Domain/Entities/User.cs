@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Converter.Domain.Entities;
+﻿namespace Converter.Domain.Entities;
 
 public class User
 {
@@ -12,6 +6,7 @@ public class User
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public string? UserName { get; set; }
+    public string? Phone { get; set; }
     public long TelegramId { get; set; }
-    public string Email { get; set; }
+    public string? Email { get; set; }
 }

@@ -4,8 +4,33 @@ using System.Text;
 
 namespace Converter.Services.Services;
 
-public class Converters
+public class ConverterService
 {
+    public List<string> GetMethodNames()
+    {
+        List<string> methodNames =
+        [
+            nameof(PdfToWordConverter),
+            nameof(PdfToHTMLConverter),
+            nameof(FileToByteConverter),
+            nameof(FileToBinaryConverter),
+            nameof(TextToBinaryConverter),
+            nameof(BinaryToTextConverter),
+            nameof(TextToAsciiConverter),
+            nameof(DecimalToBinaryConverter),
+            nameof(DecimalToOctalConverter),
+            nameof(DecimalToHexadecimalConverter),
+            nameof(DecimalToPercent),
+            nameof(ConvertFromDecimal),
+            nameof(ConvertToDecimal),
+            nameof(GetCharValue),
+            nameof(GetDigitValue),
+            nameof(ConvertBase),
+        ];
+
+        return methodNames;
+    }
+
     public string GenerateFileName(string extension)
     {
         // Generate a unique file name based on the current timestamp
@@ -126,12 +151,31 @@ public class Converters
     {
         try
         {
-            inputBinary = inputBinary.Replace(" ", "");
-
-            byte[] bytes = new byte[inputBinary.Length / 8];
-            for (int i = 0; i < inputBinary.Length; i += 8)
+            if (inputBinary.Contains(" "))
             {
-                bytes[i / 8] = Convert.ToByte(inputBinary.Substring(i, 8), 2);
+                inputBinary = inputBinary.Replace(" ", "");
+            }
+
+            if (inputBinary.Length % 8 != 0)
+            {
+                return "Invalid binary input. The length of the binary string must be divisible by 8.";
+            }
+
+            int byteLength = 8;
+            int byteCount = inputBinary.Length / byteLength;
+            byte[] bytes = new byte[byteCount];
+
+            for (int i = 0; i < byteCount; i++)
+            {
+                string byteString = inputBinary.Substring(i * byteLength, byteLength);
+
+                if (!IsBinary(byteString))
+                {
+                    throw new ArgumentException("Invalid binary input. The binary string contains non-binary characters.");
+                }
+
+                byte byteValue = Convert.ToByte(byteString, 2);
+                bytes[i] = byteValue;
             }
 
             string text = Encoding.ASCII.GetString(bytes);
@@ -139,8 +183,21 @@ public class Converters
         }
         catch (Exception ex)
         {
-            throw new Exception("An error occurred: " + ex.Message);
+            return $"An error occurred: {ex.Message}";
         }
+    }
+
+    private bool IsBinary(string input)
+    {
+        foreach (char c in input)
+        {
+            if (c != '0' && c != '1')
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
     public async Task<string> TextToAsciiConverter(string inputText)
     {
@@ -174,7 +231,7 @@ public class Converters
         string percentString = (decimalNumber * 100).ToString("0.##") + "%";
         return percentString;
     }
-    public async Task<string> ConvertFromDecimal(int decimalValue, int toBase)
+    public async Task<string> ConvertFromDecimal(int decimalValue, int toBase = 10)
     {
         string result = "";
 
@@ -189,7 +246,7 @@ public class Converters
 
         return result;
     }
-    public async Task<int> ConvertToDecimal(string number, int fromBase)
+    public async Task<int> ConvertToDecimal(string number, int fromBase = 8)
     {
         int result = 0;
         int multiplier = 1;
