@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Converter.Domain.Entities;
+using Converter.Services.Interfaces;
 namespace Converter.Services.Services;
 
-public class HistoryService
+public class HistoryService : IHistoryService
 {
     List<UserHistory> histories;
     public HistoryService()

@@ -1,11 +1,11 @@
 ﻿using Converter.Domain.Configuration;
-
+using Converter.Services.Interfaces;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace Converter.Services.Services;
 
-public class UserService
+public class UserService : IUserService
 {
 
     public async Task<string> Send(string gmail, string name)
