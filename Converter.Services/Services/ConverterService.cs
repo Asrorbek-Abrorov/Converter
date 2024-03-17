@@ -1,10 +1,11 @@
 ﻿using Converter.Domain.Configuration;
+using Converter.Services.Interfaces;
 using SautinSoft;
 using System.Text;
 
 namespace Converter.Services.Services;
 
-public class ConverterService
+public class ConverterService : IConverterService
 {
     public List<string> GetMethodNames()
     {
